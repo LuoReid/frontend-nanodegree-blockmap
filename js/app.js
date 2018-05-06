@@ -227,17 +227,30 @@ var ViewModel = function() {
 
 }
 
+function openWindow(marker) {
+  infoWindow.setContent(marker.name);
+  infoWindow.open(map, marker);
+}
 
 
 
 function initMap() {
   map = new google.maps.Map(document.querySelector(".map"), {
     center: initialPlace[0].location,
-    zoom: 14
+    zoom: 13
   });
 
+  infoWindow = new google.maps.InfoWindow();
   initialPlace.forEach(p => {
-    let marker = new google.maps.Marker({ position: p.location, map, map });
+    let marker = new google.maps.Marker({
+      position: p.location,
+      map: map,
+      name: p.name,
+      title: p.name
+    });
+    marker.addListener('click', function() {
+      openWindow(marker);
+    });
   });
   ko.applyBindings(new ViewModel());
 }
