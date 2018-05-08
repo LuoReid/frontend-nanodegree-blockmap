@@ -11,18 +11,13 @@
   <main class="block">
     <nav class="search">
       <input type="search" placeholder="Search for name" data-bind="textInput:searchPlace">
-      <button>搜索</button>
       <ul data-bind="foreach:searchedPlace">
         <li data-bind="text:name,click:$parent.click"></li>
       </ul>
     </nav>
+    <!--地图-->
     <section class="map"></section>
   </main>
-  <!--   <aside class="location">
-  <ul data-bind="foreach:searchedPlace">
-    <li data-bind="text:name"></li>
-  </ul>
-</aside> -->
   <script src="js/knockout-3.2.0.js"></script>
   <script src="js/app.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRYMFdd2seGIg1MNkm0MihHwOo-cYCwt8&v=3&callback=initMap" async defer></script>
