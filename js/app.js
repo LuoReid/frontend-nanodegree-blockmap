@@ -145,9 +145,11 @@ function openWindow(marker) {
     .then(function(data) {
       let wea = data.HeWeather6[0].now;
       weather = `天气： ${wea.cond_txt} ${wea.tmp}℃ ${wea.wind_dir}${wea.wind_sc}级`;
+      _openInfoWindow(marker);
     })
     .catch(function(err) {
       weather = '获取天气超时 :(';
+      _openInfoWindow(marker);
       console.log(weather);
     });
 
@@ -162,7 +164,6 @@ function openWindow(marker) {
       console.log(err);
     });*/
 
-  _openInfoWindow(marker);
 }
 
 //打开信息窗口
@@ -175,6 +176,10 @@ function _openInfoWindow(marker) {
   setTimeout(function() {
     marker.setAnimation(null);
   }, 1000);
+}
+
+var mapErrorHandler = function() {
+  alert('网络繁忙致加载地图API错误，请稍后再试:(');
 }
 
 //初始化地图

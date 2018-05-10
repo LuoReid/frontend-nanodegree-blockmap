@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>街区地图</title>
   <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <body>
@@ -20,7 +21,7 @@
   </main>
   <script src="js/knockout-3.2.0.js"></script>
   <script src="js/app.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRYMFdd2seGIg1MNkm0MihHwOo-cYCwt8&v=3&callback=initMap" async defer></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKitHFeacRPvJ3BTWoOwZ9giqytP0_SMM&v=3&callback=initMap" onerror="mapErrorHandler()"></script>
 </body>
 
 </html>
